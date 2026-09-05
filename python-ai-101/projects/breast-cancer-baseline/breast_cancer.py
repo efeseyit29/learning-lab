@@ -43,18 +43,3 @@ classifier_balanced.fit(X, y)
 for name, importance in zip(data.feature_names, classifier_balanced.feature_importances_):
     if importance > 0:
         print(f"{name}: {importance:.3f}")
-
-import json
-
-baseline_sonuclari = {
-    "model": "DecisionTreeClassifier(max_depth=2, class_weight='balanced')",
-    "cv_accuracy_mean": float(cross_val_skorlar.mean()),
-    "false_negatives": 15,
-    "false_negatives_unbalanced": 23,
-    "dominant_feature": "worst perimeter",
-    "dominant_feature_importance": 0.862,
-    "note": "Model neredeyse tamamen worst perimeter'a dayanıyor, geri kalan 29 feature'ın çoğu kullanılmıyor. Feature engineering'in bu az kullanılan feature'lardan yeni sinyal çıkarıp çıkaramayacağını test edeceğiz."
-}
-
-with open("baseline_results.json", "w") as f:
-    json.dump(baseline_sonuclari, f, indent=2, ensure_ascii=False)
