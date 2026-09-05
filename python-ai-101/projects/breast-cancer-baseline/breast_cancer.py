@@ -5,7 +5,6 @@ from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
-# Veriyi yükle: data, dict gibi davranan bir obje (data.data, data.target, data.feature_names vs. içerir)
 data = load_breast_cancer()      
 
 X = data.data   # Özellikler: 569 hasta x 30 ölçüm (radius, texture, worst radius vs.)
